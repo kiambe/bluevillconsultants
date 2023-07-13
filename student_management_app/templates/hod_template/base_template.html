@@ -28,12 +28,13 @@
   <link rel="stylesheet" href="{% static "summernote/summernote-bs4.css" %}">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
+  {% static 'assets/images/favicon.png'  %}
     {% comment %} For Custom CSS {% endcomment %}
 
     {% block custom_css %}
     {% endblock custom_css %}
-
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'assets/images/favicon.png'  %}">
 </head>
 
 <body class="hold-transition sidebar-mini layout-fixed">

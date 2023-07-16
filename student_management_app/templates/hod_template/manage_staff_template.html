@@ -67,8 +67,6 @@
                                 <th>Username</th>
                                 <th>Email</th>
                                 <th>Address</th>
-                                <th>Last Login</th>
-                                <th>Date Joined</th>
                                 <th>Action</th>
                                 </tr>
                             </thead>
@@ -81,8 +79,6 @@
                                 <td>{{ staff.admin.username }}</td>
                                 <td>{{ staff.admin.email }}</td>
                                 <td>{{ staff.address }}</td>
-                                <td>{{ staff.admin.last_login }}</td>
-                                <td>{{ staff.admin.date_joined }}</td>
                                 <td>
                                     <a href="{% url 'edit_staff' staff.admin.id %}" class="btn btn-success">Edit</a> 
                                     <a href="{% url 'delete_staff' staff.admin.id %}" class="btn btn-danger">Delete</a>

@@ -35,6 +35,15 @@
                 </p>
               </a>
             </li>
+            <li class="nav-item">
+              {% url 'staff_feedback_message' as staff_feedback_message %}
+              <a href="{{ staff_feedback_message }}" class="nav-link {% if request.path == staff_feedback_message %} active {% endif %}">
+                <i class="nav-icon fas fa-th"></i>
+                <p>
+                  Reports
+                </p>
+              </a>
+            </li>
 
             <li class="nav-item">
               <a href="#" class="nav-link">
@@ -77,6 +86,8 @@
              
               </ul>
               </li>
+              
+              
 
 
               <li class="nav-item">

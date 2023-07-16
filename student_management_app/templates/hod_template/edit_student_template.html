@@ -21,7 +21,7 @@
                     <!-- /.card-header -->
                     <!-- form start -->
                     {% comment %} Displaying  {% endcomment %}
-                    {% url 'edit_student_save' as action_path %}
+                    {% url 'edit_client_save' as action_path %}
                     {% include 'hod_template/form_template.html' with messages=messages form=form action_path=action_path button_text="Update Client" %}
 
                     </div>

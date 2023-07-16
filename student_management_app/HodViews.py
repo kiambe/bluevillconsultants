@@ -144,6 +144,11 @@ def edit_staff_save(request):
         first_name = request.POST.get('first_name')
         last_name = request.POST.get('last_name')
         address = request.POST.get('address')
+        department = request.POST.get('department')
+        position = request.POST.get('position')
+        status = request.POST.get('status')
+        telephone = request.POST.get('telephone')
+        jobgroup = request.POST.get('jobgroup')
 
         try:
             # INSERTING into Customuser Model
@@ -157,6 +162,11 @@ def edit_staff_save(request):
             # INSERTING into Staff Model
             staff_model = Staffs.objects.get(admin=staff_id)
             staff_model.address = address
+            staff_model.department = department
+            staff_model.position = position
+            staff_model.status = status
+            staff_model.telephone = telephone
+            staff_model.jobgroup = jobgroup
             staff_model.save()
 
             messages.success(request, "Staff Updated Successfully.")
@@ -388,9 +398,9 @@ def manage_student(request):
         "students": students
     }
     return render(request, 'hod_template/manage_student_template.html', context)
+ 
 
-
-def edit_student(request, student_id):
+def edit_client(request, student_id):
     # Adding Student ID into Session Variable
     request.session['student_id'] = student_id
 
@@ -414,13 +424,13 @@ def edit_student(request, student_id):
     return render(request, "hod_template/edit_student_template.html", context)
 
 
-def edit_student_save(request):
+def edit_client_save(request):
     if request.method != "POST":
         return HttpResponse("Invalid Method!")
     else:
         student_id = request.session.get('student_id')
         if student_id == None:
-            return redirect('/manage_student')
+            return redirect('/manage_client')
 
         form = EditStudentForm(request.POST, request.FILES)
         if form.is_valid():
@@ -470,13 +480,13 @@ def edit_student_save(request):
                 # Delete student_id SESSION after the data is updated
                 del request.session['student_id']
 
-                messages.success(request, "Student Updated Successfully!")
-                return redirect('/edit_student/'+student_id)
+                messages.success(request, "Client Updated Successfully!")
+                return redirect('/edit_client/'+student_id)
             except:
-                messages.success(request, "Failed to Uupdate Student.")
-                return redirect('/edit_student/'+student_id)
+                messages.success(request, "Failed to Update Client.")
+                return redirect('/edit_client/'+student_id)
         else:
-            return redirect('/edit_student/'+student_id)
+            return redirect('/edit_client/'+student_id)
 
 
 def delete_student(request, student_id):
@@ -486,7 +496,7 @@ def delete_student(request, student_id):
         messages.success(request, "Student Deleted Successfully.")
         return redirect('manage_student')
     except:
-        messages.error(request, "Failed to Delete Student.")
+        messages.error(request, "Failed to Delete Client.")
         return redirect('manage_student')
 
 

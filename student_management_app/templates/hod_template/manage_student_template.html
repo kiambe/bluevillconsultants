@@ -61,7 +61,6 @@
                             <thead>
                                 <tr>
                                 <th>ID</th>
-                                <th>Profile Pic</th>
                                 <th>Name</th>
                                 <th>Project</th>
                                 <th>Username</th>
@@ -69,10 +68,6 @@
                                
                                 <th>Gender</th>
                                 
-                                <th>Start Year</th>
-                                <th>End Year</th>
-                                
-                                <th>Date Joined</th>
                                 <th>Action</th>
                                 </tr>
                             </thead>
@@ -80,19 +75,15 @@
                                 {% for student in students %}
                                 <tr>
                                 <td>{{ student.admin.id }}</td>
-                                <td> <img src="{{ student.profile_pic }}" style="width: 100px;" /> </td>
                                 
                                 <td>{{ student.admin.first_name }}&nbsp;{{ student.admin.last_name }}</td>
                                 <td>{{ student.course_id.course_name }}</td>
                                 <td>{{ student.admin.username }}</td>
                                 <td>{{ student.admin.email }}</td>                              
-                                <td>{{ student.gender }}</td>
-                                <td>{{ student.session_year_id.session_start_year }}</td>
-                                <td>{{ student.session_year_id.session_end_year }}</td>                                
-                                <td>{{ student.admin.date_joined }}</td>
+                                <td>{{ student.gender }}</td>               
                                 <td>
-                                    <a href="{% url 'edit_student' student.admin.id %}" class="btn btn-success">Edit</a><br> 
-                                    <a href="{% url 'delete_student' student.admin.id %}" class="btn btn-danger">Delete</a>
+                                    <a href="{% url 'edit_client' student.admin.id %}">Edit</a><br> 
+                                    <a href="{% url 'delete_student' student.admin.id %}">Delete</a>
                                 </td>
                                 </tr>
                                 {% endfor %}
